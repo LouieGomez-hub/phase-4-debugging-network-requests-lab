@@ -63,11 +63,14 @@ developing your own process.
 - Add a new toy when the toy form is submitted
 
   - How I debugged:
+  I clicked the Add a Toy button on the browser app and checked the Console and Network tabs to see what error was being recieved. It was a 500 Internal Server error and checking the Network tab showed very clearly there was a NameError in the controller so I corrected the spelling in the create method and now the toy form is successful
 
 - Update the number of likes for a toy
 
   - How I debugged:
+  After attempting to update the likes for a toy there was an Unexpected End of JSON Input error, however the error on the browser was pointing to a fetch request on the react side, and this lab says not to modify the react side so I looked first to the controller where I quickly recognized the update method was missing the render portion, a simple fix to successfully update a toy's likes
 
 - Donate a toy to Goodwill (and delete it from our database)
 
   - How I debugged:
+Upon clicking the Donate to Goodwill button for delete functionality I checked the console to find a 404 not found error, I then checked the network tab for further details and there was a routing error, no route matching to the destroy method. I checked the routes tab in the code and added :destroy to the resources, successfully allowing a toy to be donated and deleted from the database
